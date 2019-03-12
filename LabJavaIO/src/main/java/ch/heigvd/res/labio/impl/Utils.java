@@ -1,9 +1,8 @@
-package ch.heigvd.res.lab01.impl;
+package ch.heigvd.res.labio.impl;
 
 import java.util.logging.Logger;
 
 /**
- *
  * @author Olivier Liechti
  */
 public class Utils {
@@ -20,24 +19,22 @@ public class Utils {
      * contain any line separator, then the first element is an empty string.
      */
     public static String[] getNextLine(String lines) {
-        String[] result = new String[2];
-        int idx = lines.indexOf('\n');
-        if (idx == -1) {
-            idx = lines.indexOf('\r');
-        }
-        if (idx == -1) {
-            result[0] = "";
-            result[1] = lines;
-            return result;
+        String[] strings = new String[2];
+        int indx = lines.indexOf("\n");
+        if (indx == -1) {
+            indx = lines.indexOf("\r");
+            strings[0] = "";
+            strings[1] = lines;
         } else {
-            result[0] = lines.substring(0, idx + 1);
-            if (lines.length() < idx + 1) {
-                result[1] = "";
+            strings[0] = lines.substring(0, indx + 1);
+            if (lines.length() < indx + 1) {
+                strings[1] = "";
             } else {
-                result[1] = lines.substring(idx+1);
+                strings[1] = lines.substring(indx + 1);
             }
         }
-        return result;
+        return strings;
+
     }
 
 }
