@@ -20,9 +20,12 @@ public class Utils {
      */
     public static String[] getNextLine(String lines) {
         String[] strings = new String[2];
-        int indx = lines.indexOf("\n");
+        int indx = lines.indexOf('\n');
         if (indx == -1) {
-            indx = lines.indexOf("\r");
+            indx = lines.indexOf('\r');
+        }
+
+        if (indx == -1) {
             strings[0] = "";
             strings[1] = lines;
         } else {
